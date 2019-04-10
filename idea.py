@@ -1,17 +1,19 @@
 from os import system
-def generateTiles(arr, x):
-    for i in range(0, x):
-        arr.append(['-'] * x)
+
+def generateTiles(n):
+    arr = []
+    for i in range(0, n):
+        arr.append(['-'] * n)
     return arr
 
-def drawTiles(arr, x):
-    for i in range(0, x):
-        print(x-i, end=' ')
-        for j in range(0, x):
+def drawTiles(arr, n):
+    for i in range(0, n):
+        print(n-i, end=' ')
+        for j in range(0, n):
             print(arr[i][j], end=' ')
         print()
     print('  ', end='')
-    for i in range(0, x):
+    for i in range(0, n):
         print(i+1, end=' ')
     print()
 
@@ -26,10 +28,11 @@ def getValue(arr, x, y):
     y = len(arr[x]) - y
     return arr[y][x]
 
-def turn(arr, n, playerOne):
-    coordinateAvailable = False
-    while (not coordinateAvailable):
-        drawTiles(arr, n)
+def turn(arr, playerOne):
+    isCoordinateAvailable = False
+    size = len(arr[0])
+    while (not isCoordinateAvailable):
+        drawTiles(arr, size)
         print()
         if playerOne:
             print('Player 1: (O)')
@@ -39,7 +42,7 @@ def turn(arr, n, playerOne):
             obj = 'X'
         x = int(input('X: '))
         y = int(input('Y: '))
-        coordinateAvailable = x > 0 and x < n+1 and y > 0 and y < n+1 and getValue(arr, x, y) == '-'
+        isCoordinateAvailable = x > 0 and x < size+1 and y > 0 and y < size+1 and getValue(arr, x, y) == '-'
         system('cls')
     arr = setActive(arr, x, y, obj)
     getValue(arr, x, y)
@@ -48,10 +51,9 @@ def turn(arr, n, playerOne):
 
 def main():
     n = 8
-    arr = []
-    arr = generateTiles(arr, n)
+    arr = generateTiles(n)
     playerOne = True
     while True:
-        arr, playerOne = turn(arr, n, playerOne)
+        arr, playerOne = turn(arr, playerOne)
 
 main()
