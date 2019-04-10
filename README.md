@@ -55,6 +55,6 @@ functions available:
 > print(getValue(arr, 3, 4)
 'X'
 
-print(getValue(arr, 1, 3)
+> print(getValue(arr, 1, 3)
 '-'
 ```
