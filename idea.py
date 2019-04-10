@@ -6,14 +6,15 @@ def generateTiles(n):
         arr.append(['-'] * n)
     return arr
 
-def drawTiles(arr, n):
-    for i in range(0, n):
-        print(n-i, end=' ')
-        for j in range(0, n):
+def drawTiles(arr):
+    size = len(arr[0])
+    for i in range(0, size):
+        print(size-i, end=' ')
+        for j in range(0, size):
             print(arr[i][j], end=' ')
         print()
     print('  ', end='')
-    for i in range(0, n):
+    for i in range(0, size):
         print(i+1, end=' ')
     print()
 
@@ -28,13 +29,13 @@ def getValue(arr, x, y):
     y = len(arr[x]) - y
     return arr[y][x]
 
-def turn(arr, playerOne):
+def turn(arr, isNowPlayerOne):
     isCoordinateAvailable = False
     size = len(arr[0])
     while (not isCoordinateAvailable):
-        drawTiles(arr, size)
+        drawTiles(arr)
         print()
-        if playerOne:
+        if isNowPlayerOne:
             print('Player 1: (O)')
             obj = 'O'
         else:
@@ -46,14 +47,14 @@ def turn(arr, playerOne):
         system('cls')
     arr = setActive(arr, x, y, obj)
     getValue(arr, x, y)
-    playerOne = not playerOne
-    return arr, playerOne
+    isNowPlayerOne = not isNowPlayerOne
+    return arr, isNowPlayerOne
 
 def main():
     n = 8
     arr = generateTiles(n)
-    playerOne = True
+    isNowPlayerOne = True
     while True:
-        arr, playerOne = turn(arr, playerOne)
+        arr, isNowPlayerOne = turn(arr, isNowPlayerOne)
 
 main()
