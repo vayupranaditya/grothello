@@ -47,14 +47,14 @@ def turn(arr, isNowPlayerOne):
         system('cls')
     arr = setActive(arr, x, y, obj)
     getValue(arr, x, y)
-    isNowPlayerOne = not isNowPlayerOne
-    return arr, isNowPlayerOne
+    return arr
 
 def main():
     n = 8
     arr = generateTiles(n)
     isNowPlayerOne = True
     while True:
-        arr, isNowPlayerOne = turn(arr, isNowPlayerOne)
+        arr = turn(arr, isNowPlayerOne)
+        isNowPlayerOne = not isNowPlayerOne
 
 main()
