@@ -50,6 +50,8 @@ def getN(arr, x, y, obj): #tested OK
     i = y
     while i > 0:
         i -= 1
+        if arr[i][x] == '-':
+            return -1, -1
         if arr[i][x] == obj:
             return formatRawCoordinate(size, x, i)
     return -1, -1
@@ -62,6 +64,8 @@ def getNE(arr, x, y, obj): #tested OK
     while i > 0 and j < size-1:
         i -= 1
         j += 1
+        if arr[i][j] == '-':
+            return -1, -1
         if arr[i][j] == obj:
             return formatRawCoordinate(size, j, i)
     return -1, -1
@@ -72,6 +76,8 @@ def getE(arr, x, y, obj): #tested OK
     j = x
     while j < size-1:
         j += 1
+        if arr[y][j] == '-':
+            return -1, -1
         if arr[y][j] == obj:
             return formatRawCoordinate(size, j, y)
     return -1, -1
@@ -84,6 +90,8 @@ def getSE(arr, x, y, obj): #tested OK
     while i < size-1 and j < size-1:
         i += 1
         j += 1
+        if arr[i][j] == '-':
+            return -1, -1
         if arr[i][j] == obj:
             return formatRawCoordinate(size, j, i)
     return -1, -1
@@ -94,6 +102,8 @@ def getS(arr, x, y, obj): #tested OK
     i = y
     while i < size-1:
         i += 1
+        if arr[i][x] == '-':
+            return -1, -1
         if arr[i][x] == obj:
             return formatRawCoordinate(size, x, i)
     return -1, -1
@@ -106,6 +116,8 @@ def getSW(arr, x, y, obj): #tested OK
     while i < size-1 and j > 0:
         i += 1
         j -= 1
+        if arr[i][j] == '-':
+            return -1, -1
         if arr[i][j] == obj:
             return formatRawCoordinate(size, j, i)
     return -1, -1
@@ -116,6 +128,8 @@ def getW(arr, x, y, obj): #tested OK
     j = x
     while j > 0:
         j -= 1
+        if arr[y][j] == '-':
+            return -1, -1
         if arr[y][j] == obj:
             return formatRawCoordinate(size, j, y)
     return -1, -1
@@ -128,6 +142,8 @@ def getNW(arr, x, y, obj): #tested OK
     while i > 0 and j > 0:
         i -= 1
         j -= 1
+        if arr[i][j] == '-':
+            return -1, -1
         if arr[i][j] == obj:
             return formatRawCoordinate(size, j, i)
     return -1, -1
