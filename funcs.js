@@ -6,14 +6,12 @@ const getLocation = (id) => {
 };
 
 const getContent = (x, y) => {
-	console.log($(getId(x, y)).attr('data-content'));
-	return $(getId(x, y)).attr('data-content');
+	return getAttribute(x, y, 'content');
 };
 
 const setContent = (x, y, obj) => {
-	$(getId(x, y)).attr('data-content', obj);
-	$(getId(x, y)).attr('data-immutable', true);
-	console.log($(getId(x, y)).attr('data-content'));
+	setAttribute(x, y, 'content', obj);
+	setAttribute(x, y, 'immutable', true);
 	if (obj === 0) {
 		return fill(x, y, 'black');
 	} else {
@@ -76,8 +74,7 @@ const initGrid = () => {
 	let id;
 	for (let i = 1; i <= 8; i++) {
 		for (let j = 1; j <= 8 ; j++) {
-			id = getId(i, j);
-			$(id).attr('data-content', '-');
+			setAttribute(i, j, 'content', '-');
 		}
 	}
 }
