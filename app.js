@@ -21,19 +21,9 @@ $('document').ready(() => {
 			}
 		}
 		if (getAvailableMove(turn%2).length == 0) {
-			if (setContent(pos.x, pos.y, turn % 2)) {
-				removeAllFill();
-				changeTile(pos.x, pos.y);
-				turn++;
-				setAllAttribute('available', false);
-				if (turn % 2 == 0) {
-					$('.is-1').css('border-color', 'black');
-				} else {
-					$('.is-1').css('border-color', 'white')
-				}
-			}
+			turn++;
 			if (getAvailableMove(turn%2).length == 0) {
-				alert('Game Done');
+				alert('Game Done! '+(score.P1 > score.P2 ? 'P1 wins!' : (score.P1 < score.P2 ? 'P2 wins!' : 'Draw!')));
 			}
 		}
 		score = countScore();
