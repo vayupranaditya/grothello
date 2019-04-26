@@ -10,9 +10,32 @@ $('document').ready(() => {
 		let html = e.target.innerHTML;
 		let pos = getLocation(e.target.id);
 		if (setContent(pos.x, pos.y, turn % 2)) {
+			removeAllFill();
+			changeTile(pos.x, pos.y);
 			turn++;
 			setAllAttribute('available', false);
+			if (turn % 2 == 0) {
+				$('.is-1').css('border-color', 'black');
+			} else {
+				$('.is-1').css('border-color', 'white')
+			}
 		}
-		getAvailableMove(turn%2);
+		if (getAvailableMove(turn%2).length == 0) {
+			if (setContent(pos.x, pos.y, turn % 2)) {
+				removeAllFill();
+				changeTile(pos.x, pos.y);
+				turn++;
+				setAllAttribute('available', false);
+				if (turn % 2 == 0) {
+					$('.is-1').css('border-color', 'black');
+				} else {
+					$('.is-1').css('border-color', 'white')
+				}
+			}
+			if (getAvailableMove(turn%2).length == 0) {
+				alert('Game Done');
+			}
+		}
+		score = countScore();
 	});
 });
