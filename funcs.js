@@ -116,10 +116,31 @@ const initGrid = () => {
 const fill = (x, y, color) => {
 	removeFill(x, y);
 	let id = getId(x, y);
+	// $(id).animate({'opacity' : 0}, 100, () => {
+	// 	$(id).html('<div style="width: 100%; height: 100%; border-radius: 50%; background-color: ' + color + '"></div>')
+	// 			.animate({'opacity' : 1}, 500);
+	// });
+	// $(id).animate({
+	// 	backgroundColor: color
+	// })
+	$(id).html('<div style="width: 100%; height: 100%; border-radius: 50%; background-color: ' + color + '"></div>');
+}
+
+const fillAvailable = (x, y, color) => {
+	removeFill(x, y);
+	let id = getId(x, y);
+	// $(id).animate({'opacity' : 0}, 400, () => {
+	// 	$(id).html('<div style="width: 100%; height: 100%; border-radius: 50%; background-color: ' + color + '"></div>')
+	// 			.animate({'opacity' : 1}, 400);
+	// });
+	// $(id).animate({
+	// 	backgroundColor: color
+	// })
 	$(id).html('<div style="width: 100%; height: 100%; border-radius: 50%; background-color: ' + color + '"></div>');
 }
 
 const removeFill = (x, y, color) => {
+	// delay(500);
 	let id = getId(x, y);
 	$(id).html('');
 }
@@ -258,7 +279,7 @@ const getAvailableMove = (obj) => {
 	for (let i = 0; i < availableMoves.length; i++) {
 		x = availableMoves[i].x;
 		y = availableMoves[i].y;
-		fill(x, y, '#65f334');
+		fillAvailable(x, y, '#65f334');
 	}
 	return availableMoves;
 }
@@ -381,4 +402,13 @@ const setWhosPlaying = (obj) => {
 const setScore = (score) => {
 	$('#score-p1').text(score.P1);
 	$('#score-p2').text(score.P2);
+}
+
+function delay(ms) {
+	var start = Date.now(),
+	now = start;
+	while (now - start < ms) {
+		console.log(0);
+		now = Date.now();
+	}
 }
