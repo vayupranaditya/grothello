@@ -17,7 +17,7 @@ $('document').ready(() => {
 			let score = countScore();
 			setScore(score);
 			// computer player
-			console.log('Bot:')
+			console.log('Robot:')
 			pos = getMove(1);
 			safeSet(pos.x, pos.y, 1);
 			changeTile(pos.x, pos.y, 1)
@@ -27,7 +27,7 @@ $('document').ready(() => {
 		if (getAvailableMove(0).length == 0) {
 			let score = countScore();
 			if (getAvailableMove(0).length == 0) {
-				alert('Game Done! '+(score.P1 > score.P2 ? 'P1 wins!' : (score.P1 < score.P2 ? 'Bot wins!' : 'Draw!')));
+				alert('Game Done! '+(score.P1 > score.P2 ? 'Human wins!' : (score.P1 < score.P2 ? 'Robot wins!' : 'Draw!')));
 			}
 			setWhosPlaying(0);
 			setScore(score);
