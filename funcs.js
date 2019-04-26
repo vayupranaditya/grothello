@@ -258,7 +258,7 @@ const getAvailableMove = (obj) => {
 	for (let i = 0; i < availableMoves.length; i++) {
 		x = availableMoves[i].x;
 		y = availableMoves[i].y;
-		fill(x, y, '#bbb');
+		fill(x, y, '#65f334');
 	}
 	return availableMoves;
 }
@@ -355,7 +355,7 @@ const changeTile = (x, y) => {
 };
 
 const countScore = () => {
-	score = {'P1' : 0, 'P2' : 0};
+	let score = {'P1' : 0, 'P2' : 0};
 	for (let i = 1; i <= 8; i++) {
 		for (let j = 1; j <= 8; j++) {
 			if (getContent(i, j) == 0) {
@@ -366,4 +366,19 @@ const countScore = () => {
 		}
 	}
 	return score;
+}
+
+const setWhosPlaying = (obj) => {
+	if (parseInt(obj)%2 == 0) {
+		$('#turn-p1').text('playing..');
+		$('#turn-p2').text(' ');
+	} else {
+		$('#turn-p1').text(' ');
+		$('#turn-p2').text('playing..');
+	}
+}
+
+const setScore = (score) => {
+	$('#score-p1').text(score.P1);
+	$('#score-p2').text(score.P2);
 }

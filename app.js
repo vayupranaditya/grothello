@@ -14,18 +14,18 @@ $('document').ready(() => {
 			changeTile(pos.x, pos.y);
 			turn++;
 			setAllAttribute('available', false);
-			if (turn % 2 == 0) {
-				$('.is-1').css('border-color', 'black');
-			} else {
-				$('.is-1').css('border-color', 'white')
-			}
+			setWhosPlaying(turn);
+			let score = countScore();
+			setScore(score);
 		}
 		if (getAvailableMove(turn%2).length == 0) {
 			turn++;
+			let score = countScore();
 			if (getAvailableMove(turn%2).length == 0) {
 				alert('Game Done! '+(score.P1 > score.P2 ? 'P1 wins!' : (score.P1 < score.P2 ? 'P2 wins!' : 'Draw!')));
 			}
+			setWhosPlaying(turn);
+			setScore(score);
 		}
-		score = countScore();
 	});
 });

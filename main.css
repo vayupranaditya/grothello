@@ -1,4 +1,10 @@
 body {
 	height: 101vh;
-	background-color: #efefef;
+	background-color: #178e0b;
+}
+.is-1 {
+	border: solid white 1px; 
+}
+.playing {
+	color: #65f334;	
 }
