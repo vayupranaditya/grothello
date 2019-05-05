@@ -19,6 +19,7 @@ const getMove = (obj) => {
 	let move = {'x' : 0, 'y' : 0, 'n' : 0};
 	let max = 0;
 	let timeStart, timeEnd;
+	// greedy algorithm start
 	timeStart = performance.now();
 	for (let i = 0; i < surs.length; i++) {
 		x = surs[i].x;
@@ -41,6 +42,7 @@ const getMove = (obj) => {
 		}
 	}
 	timeEnd = performance.now();
+	// greedy algorithm end
 	let time = timeEnd - timeStart;
 	for (let i = 0; i < moves.length; i++) {
 		console.log('('+moves[i].x+', '+moves[i].y+'): '+moves[i].n);
