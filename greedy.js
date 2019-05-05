@@ -33,7 +33,6 @@ const getMove = (obj) => {
 		num += getSW(x, y, 0);
 		num += getNW(x, y, 0);
 		if (num > 0) {
-			// console.log(x+', '+y+' with n: '+num)
 			moves.push({'x' : x, 'y' : y, 'n' : num});
 			if (num >= max) {
 				max = num;

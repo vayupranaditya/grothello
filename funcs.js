@@ -136,7 +136,7 @@ const fillAvailable = (x, y, color) => {
 	// $(id).animate({
 	// 	backgroundColor: color
 	// })
-	$(id).html('<div style="width: 100%; height: 100%; border-radius: 50%; background-color: ' + color + '"></div>');
+	$(id).html('<div class="mx-auto mt-4 px-auto py-auto" style="width: 50%; height: 50%; border-radius: 50%; background-color: ' + color + '"></div>');
 }
 
 const removeFill = (x, y, color) => {
